@@ -22,7 +22,7 @@ jobs:
           def hello
               puts "Hello, World!"
           end
-          EOM          
+          EOM
 
       - name: Add rubygems-publish.gemspec
         run: |
