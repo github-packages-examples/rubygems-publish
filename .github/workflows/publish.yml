@@ -2,6 +2,7 @@ on:
   push:
 
 env:
+  NAME: rubygems-publish
   VERSION: "1.0.${{ github.run_number }}"
 
 jobs:
@@ -16,27 +17,27 @@ jobs:
         with:
           version: 2.6.x
 
-      - name: Add lib/rubygems-publish.rb
+      - name: Add lib/${{ env.NAME }}.rb
         run: |
           mkdir lib
-          cat > lib/rubygems-publish.rb << EOM
+          cat > lib/${{ env.NAME }}.rb << EOM
           def hello
               puts "Hello, World!"
           end
           EOM
 
-      - name: Add rubygems-publish.gemspec
+      - name: Add ${{ env.NAME }}.gemspec
         run: |
-          cat > rubygems-publish.gemspec << EOM
+          cat > ${{ env.NAME }}.gemspec << EOM
           Gem::Specification.new do |s|
-              s.name        = 'rubygems-publish'
+              s.name        = '${{ env.NAME }}'
               s.version     = '${{ env.VERSION }}'
               s.licenses    = ['MIT']
               s.summary     = "This is an example!"
               s.description = "Much longer explanation of the example!"
               s.authors     = ["Ruby Coder"]
               s.email       = 'rubycoder@example.com'
-              s.files       = ["lib/rubygems-publish.rb"]
+              s.files       = ["lib/${{ env.NAME }}.rb"]
               s.homepage    = 'https://rubygems.org/gems/example'
               s.metadata    = {
                   "source_code_uri" => "https://github.com/${{ github.repository }}",
