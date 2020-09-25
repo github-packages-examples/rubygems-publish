@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby 2.6
+      - name: Setup Ruby 2.7
         uses: actions/setup-ruby@v1
         with:
           version: 2.6.x
@@ -41,13 +41,6 @@ jobs:
           end
           EOM
           
-      - name: Create $HOME/.gem/credentials
-        run: |
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:github: Bearer ${{ github.token }}\n" > $HOME/.gem/credentials
-
       - name: Build .gem
         run: gem build *.gemspec
 
