@@ -25,7 +25,7 @@ jobs:
         run: |
           cat > rubygems-publish.gemspec << EOM
           Gem::Specification.new do |s|
-              s.name        = 'ruby-test'
+              s.name        = 'rubygems-publish'
               s.version     = '0.1.0'
               s.licenses    = ['MIT']
               s.summary     = "This is an example!"
