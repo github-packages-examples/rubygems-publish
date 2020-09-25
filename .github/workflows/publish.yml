@@ -34,17 +34,17 @@ jobs:
           Gem::Specification.new do |s|
               s.name        = '${{ env.NAME }}'
               s.version     = '${{ env.VERSION }}'
-              s.licenses    = ['MIT']
-              s.summary     = "This is an example!"
-              s.description = "Much longer explanation of the example!"
-              s.authors     = ["Ruby Coder"]
-              s.email       = 'rubycoder@example.com'
-              s.files       = ["lib/${{ env.NAME }}.rb"]
+              s.summary     = "This is a summary!"
+              s.description = "This is a much longer description!"
+              s.authors     = ["Anon Coder"]
+              s.email       = 'anon.coder@anon.org'
               s.homepage    = 'https://github.com/${{ github.repository }}'
+              s.files       = ["lib/${{ env.NAME }}.rb"]
               s.metadata    = {
                   "source_code_uri" => "https://github.com/${{ github.repository }}",
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
+              s.licenses    = ['MIT']
           end
           EOM
           
