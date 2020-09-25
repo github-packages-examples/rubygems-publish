@@ -40,7 +40,7 @@ jobs:
               s.authors     = ["Ruby Coder"]
               s.email       = 'rubycoder@example.com'
               s.files       = ["lib/${{ env.NAME }}.rb"]
-              s.homepage    = 'https://rubygems.org/gems/example'
+              s.homepage    = 'https://github.com/${{ github.repository }}'
               s.metadata    = {
                   "source_code_uri" => "https://github.com/${{ github.repository }}",
                   "github_repo" => "https://github.com/${{ github.repository }}"
