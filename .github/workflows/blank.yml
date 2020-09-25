@@ -8,10 +8,36 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Add hello.rb
+        run: |
+          cat > hello.rb << EOM
+          def hello
+              puts "Hello, World!"
+          end
+          EOM          
+
+      - name: Add ruby-test.gemspec
+        run: |
+          cat > ruby-test.gemspec << EOM
+          Gem::Specification.new do |s|
+              s.name        = 'ruby-test'
+              s.version     = '0.1.0'
+              s.licenses    = ['MIT']
+              s.summary     = "This is an example!"
+              s.description = "Much longer explanation of the example!"
+              s.authors     = ["Ruby Coder"]
+              s.email       = 'rubycoder@example.com'
+              s.files       = ["hello.rb"]
+              s.homepage    = 'https://rubygems.org/gems/example'
+              s.metadata    = {
+                  "source_code_uri" => "https://github.com/${{ github.repository }}",
+                  "github_repo" => "https://github.com/${{ github.repository }}"
+              }
+          end
+          EOM          
+
       - name: Add main.rb
         run: echo 'puts "Hello, World!"' > main.rb
 
       - name: Run main.rb
         run: ruby main.rb
-
-        
