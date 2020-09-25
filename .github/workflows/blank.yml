@@ -21,9 +21,9 @@ jobs:
           end
           EOM          
 
-      - name: Add ruby-test.gemspec
+      - name: Add rubygems-publish.gemspec
         run: |
-          cat > ruby-test.gemspec << EOM
+          cat > rubygems-publish.gemspec << EOM
           Gem::Specification.new do |s|
               s.name        = 'ruby-test'
               s.version     = '0.1.0'
