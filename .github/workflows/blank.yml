@@ -45,7 +45,7 @@ jobs:
         run: gem build *.gemspec
 
       - name: Publish .gem
-        run: gem push --key github --host https://rubygems.pkg.github.com/${{ github.repository_owner }} *.gem
+        run: gem push --host https://rubygems.pkg.github.com/${{ github.repository_owner }} *.gem
 
       - name: Add main.rb
         run: echo 'puts "Hello, World!"' > main.rb
