@@ -34,7 +34,10 @@ jobs:
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
           end
-          EOM          
+          EOM
+          
+      - name: Build .gem
+        run: gem build *.gemspec
 
       - name: Add main.rb
         run: echo 'puts "Hello, World!"' > main.rb
