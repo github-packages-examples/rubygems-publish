@@ -16,9 +16,10 @@ jobs:
         with:
           version: 2.6.x
 
-      - name: Add rubygems-publish.rb
+      - name: Add lib/rubygems-publish.rb
         run: |
-          cat > rubygems-publish.rb << EOM
+          mkdir lib
+          cat > lib/rubygems-publish.rb << EOM
           def hello
               puts "Hello, World!"
           end
@@ -35,7 +36,7 @@ jobs:
               s.description = "Much longer explanation of the example!"
               s.authors     = ["Ruby Coder"]
               s.email       = 'rubycoder@example.com'
-              s.files       = ["rubygems-publish.rb"]
+              s.files       = ["lib/rubygems-publish.rb"]
               s.homepage    = 'https://rubygems.org/gems/example'
               s.metadata    = {
                   "source_code_uri" => "https://github.com/${{ github.repository }}",
