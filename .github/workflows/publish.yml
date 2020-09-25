@@ -21,8 +21,10 @@ jobs:
         run: |
           mkdir lib
           cat > lib/${{ env.NAME }}.rb << EOM
-          def hello
-            puts "Hello from ${{ github.repository }}!"
+          class RubyGemsPublish
+            def self.hello
+              puts "Hello from ${{ github.repository }}!"
+            end
           end
           EOM
 
