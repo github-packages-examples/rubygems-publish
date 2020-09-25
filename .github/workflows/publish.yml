@@ -22,7 +22,7 @@ jobs:
           mkdir lib
           cat > lib/${{ env.NAME }}.rb << EOM
           def hello
-              puts "Hello, World!"
+              puts "Hello from ${{ github.repository }}!"
           end
           EOM
 
