@@ -35,7 +35,7 @@ jobs:
               s.version     = '${{ env.VERSION }}'
               s.files       = ["lib/${{ env.NAME }}.rb"]
               s.metadata    = {
-                  "github_repo" => "https://github.com/${{ github.repository }}"
+                  "github_repo" => "https://github.com/GitHub-Packages-Examples/RubyGems-Publish"
               }
               s.summary     = "This is a summary!"
               s.authors     = ["Jamie Cansdale"]
