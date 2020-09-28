@@ -38,6 +38,7 @@ jobs:
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
               s.summary     = "This is a summary!"
+              s.authors     = ["Jamie Cansdale"]
           end
           EOM
           
@@ -92,6 +93,7 @@ jobs:
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
               s.summary     = "This is a summary!"
+              s.authors     = ["Jamie Cansdale"]
           end
           EOM
         env:
