@@ -106,6 +106,8 @@ jobs:
               s.licenses    = ['MIT']
           end
           EOM
+        env:
+          VERSION: "${{ env.VERSION }}-ruby27"
           
       - name: Build .gem
         run: gem build *.gemspec
