@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby 2.6
+      - name: Setup Ruby 2.7
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: 2.7.x
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
