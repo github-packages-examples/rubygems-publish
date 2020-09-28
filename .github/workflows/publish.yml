@@ -55,7 +55,6 @@ jobs:
           ---
           :github: Bearer ${{ github.token }}
           EOM
-          chmod 0600 ~/.gem/credentials
 
       - name: Build .gem
         run: gem build *.gemspec
