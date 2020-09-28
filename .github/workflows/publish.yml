@@ -48,12 +48,14 @@ jobs:
           end
           EOM
           
-      - name: Create $HOME/.gem/credentials
+      - name: Create ~/.gem/credentials
         run: |
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:github: Bearer ${{ github.token }}\n" > $HOME/.gem/credentials
+          mkdir -p ~/.gem
+          cat > ~/.gem/credentials << EOM
+          ---
+          :github: Bearer ${{ github.token }}
+          EOM
+          chmod 0600 ~/.gem/credentials
 
       - name: Build .gem
         run: gem build *.gemspec
