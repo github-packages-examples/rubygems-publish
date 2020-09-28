@@ -37,7 +37,7 @@ jobs:
               s.metadata    = {
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
-              s.licenses    = ['MIT']
+              s.summary     = "This is a summary!"
           end
           EOM
           
@@ -91,7 +91,7 @@ jobs:
               s.metadata    = {
                   "github_repo" => "https://github.com/${{ github.repository }}"
               }
-              s.licenses    = ['MIT']
+              s.summary     = "This is a summary!"
           end
           EOM
         env:
