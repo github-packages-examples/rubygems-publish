@@ -2,21 +2,28 @@ on:
   push:
   workflow_dispatch:
 
-env:
-  NAME: rubygems-publish
-  VERSION: "1.1.${{ github.run_number }}"
-
 jobs:
-  publish-ruby-2-6:
+  publish-ruby:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false      
+      matrix:
+        ruby-version: [2.5.x, 2.6.x]
+
+    name: "Publish with Ruby ${{ matrix.ruby-version }}"
+    
+    env:
+      NAME: rubygems-publish
+      VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby 2.6
+      - name: Setup Ruby ${{ matrix.ruby-version }}
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: ${{ matrix.ruby-version }}
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
@@ -63,16 +70,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
 
-  publish-ruby-2-7:
+  publish-ruby-no-credentials-file:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false      
+      matrix:
+        ruby-version: [2.7.x]
+
+    name: "Publish with Ruby ${{ matrix.ruby-version }}"
+
+    env:
+      NAME: rubygems-publish
+      VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby 2.7
+      - name: Setup Ruby ${{ matrix.ruby-version }}
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: ${{ matrix.ruby-version }}
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
