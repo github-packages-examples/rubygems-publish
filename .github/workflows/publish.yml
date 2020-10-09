@@ -7,7 +7,8 @@ env:
   VERSION: "1.1.${{ github.run_number }}"
 
 jobs:
-  publish-ruby-${{ matrix.ruby-version }}:
+  publish-ruby:
+    name: "Publish with Ruby ${{ matrix.ruby-version }}"
     strategy:
       fail-fast: false      
       matrix:
