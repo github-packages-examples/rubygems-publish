@@ -7,16 +7,21 @@ env:
   VERSION: "1.1.${{ github.run_number }}"
 
 jobs:
-  publish-ruby-2-6:
+  publish-ruby-${{ matrix.ruby-version }}:
+    strategy:
+      fail-fast: false      
+      matrix:
+        ruby-version: [2.5.x, 2.6.x]
+    
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby 2.6
+      - name: Setup Ruby ${{ matrix.ruby-version }}
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: ${{ matrix.ruby-version }}
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
