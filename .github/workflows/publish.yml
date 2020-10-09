@@ -4,7 +4,7 @@ on:
 
 env:
   NAME: rubygems-publish
-  VERSION: "1.1.${{ github.run_number }}"
+  VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
 
 jobs:
   publish-ruby:
