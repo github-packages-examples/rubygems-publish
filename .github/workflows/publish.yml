@@ -2,10 +2,6 @@ on:
   push:
   workflow_dispatch:
 
-env:
-  NAME: rubygems-publish
-  VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
-
 jobs:
   publish-ruby:
     name: "Publish with Ruby ${{ matrix.ruby-version }}"
@@ -15,6 +11,10 @@ jobs:
         ruby-version: [2.5.x, 2.6.x]
     
     runs-on: ubuntu-latest
+
+    env:
+      NAME: rubygems-publish
+      VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
 
     steps:
       - uses: actions/checkout@v2
@@ -71,6 +71,10 @@ jobs:
 
   publish-ruby-2-7:
     runs-on: ubuntu-latest
+
+    env:
+      NAME: rubygems-publish
+      VERSION: "1.${{ github.run_number }}.${{ strategy.job-index }}"
 
     steps:
       - uses: actions/checkout@v2
