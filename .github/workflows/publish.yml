@@ -115,7 +115,7 @@ jobs:
   retention-policy:
     runs-on: ubuntu-latest
 
-    needs: [publish-ruby-2-6, publish-ruby-2-7]
+    needs: [publish-ruby-2-6, publish-ruby-3-2]
 
     steps:
       - name: Only retain the last 5 pre-release versions
