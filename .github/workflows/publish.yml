@@ -61,14 +61,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
 
-  publish-ruby-2-7:
+  publish-ruby-3-2:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup Ruby 3.2
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.x
+          ruby-version: 3.2
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
