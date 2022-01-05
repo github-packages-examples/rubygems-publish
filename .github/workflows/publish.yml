@@ -16,6 +16,9 @@ jobs:
         with:
           ruby-version: 2.6.x
 
+      - name: Show gem version
+        run: gem -v
+
       - name: Add lib/${{ env.NAME }}.rb
         run: |
           mkdir lib
@@ -69,6 +72,9 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.x
+
+      - name: Show gem version
+        run: gem -v
 
       - name: Add lib/${{ env.NAME }}.rb
         run: |
