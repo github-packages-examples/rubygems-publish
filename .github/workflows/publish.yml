@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Setup Ruby 2.6
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: 2.6.10
 
       - name: Show gem version
         run: gem -v
@@ -69,9 +69,9 @@ jobs:
 
     steps:
       - name: Setup Ruby 2.7
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 2.7.8
 
       - name: Show gem version
         run: gem -v
