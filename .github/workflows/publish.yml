@@ -8,6 +8,10 @@ env:
 
 jobs:
   publish-ruby-2-6:
+    permissions:
+      packages: write
+      contents: read
+
     runs-on: ubuntu-latest
 
     steps:
@@ -61,6 +65,10 @@ jobs:
         run: gem push --key github --host https://rubygems.pkg.github.com/${{ github.repository_owner }} *.gem
 
   publish-ruby-2-7:
+    permissions:
+      packages: write
+      contents: read
+
     runs-on: ubuntu-latest
 
     steps:
